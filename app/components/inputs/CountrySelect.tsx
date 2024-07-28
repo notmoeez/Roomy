@@ -1,5 +1,4 @@
 'use client';
-
 import Select from 'react-select'
 
 import useCountries from '@/app/hooks/useCountries';
@@ -26,7 +25,7 @@ const CountrySelect: React.FC<CountrySelectProps> = ({
   return ( 
     <div>
       <Select
-        placeholder="Anywhere"
+        placeholder="Where to?"
         isClearable
         options={getAll()}
         value={value}

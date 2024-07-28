@@ -1,109 +1,127 @@
-'use client';
+"use client";
 
-import { usePathname, useSearchParams } from 'next/navigation';
-import { TbBeach, TbMountain, TbPool } from 'react-icons/tb';
-import { 
-  GiBarn, 
-  GiBoatFishing, 
-  GiCactus, 
-  GiCastle, 
-  GiCaveEntrance, 
-  GiForestCamp, 
+import { usePathname, useSearchParams } from "next/navigation";
+import {
+  TbBeach,
+  TbMountain,
+  TbPool,
+  TbFridge,
+  TbMassage,
+} from "react-icons/tb";
+import {
+  GiBarn,
+  GiBoatFishing,
+  GiCactus,
+  GiCastle,
+  GiCaveEntrance,
+  GiForestCamp,
   GiIsland,
-  GiWindmill
-} from 'react-icons/gi';
-import { FaSkiing } from 'react-icons/fa';
-import { BsSnow } from 'react-icons/bs';
-import { IoDiamond } from 'react-icons/io5';
-import { MdOutlineVilla } from 'react-icons/md';
+  GiWindmill,
+  GiWaterfall,
+  GiMeal,
+} from "react-icons/gi";
+import {
+  FaDumbbell,
+  FaHotTub,
+  FaParking,
+  FaSkiing,
+  FaWifi,
+} from "react-icons/fa";
+import { BsSnow } from "react-icons/bs";
+import { IoDiamond } from "react-icons/io5";
+import {
+  MdOutlineVilla,
+  MdOutlineFort,
+  MdMicrowave,
+  MdOutlinePersonalVideo,
+} from "react-icons/md";
 
 import CategoryBox from "../CategoryBox";
-import Container from '../Container';
-
+import Container from "../Container";
 
 export const categories = [
   {
-    label: 'Beach',
+    label: "Beach",
     icon: TbBeach,
-    description: 'This property is close to the beach!',
+    description: "This property has Beach access!",
   },
   {
-    label: 'Windmills',
-    icon: GiWindmill,
-    description: 'This property is has windmills!',
-  },
-  {
-    label: 'Modern',
-    icon: MdOutlineVilla,
-    description: 'This property is modern!'
-  },
-  {
-    label: 'Countryside',
-    icon: TbMountain,
-    description: 'This property is in the countryside!'
-  },
-  {
-    label: 'Pools',
-    icon: TbPool,
-    description: 'This is property has a beautiful pool!'
-  },
-  {
-    label: 'Islands',
-    icon: GiIsland,
-    description: 'This property is on an island!'
-  },
-  {
-    label: 'Lake',
-    icon: GiBoatFishing,
-    description: 'This property is near a lake!'
-  },
-  {
-    label: 'Skiing',
-    icon: FaSkiing,
-    description: 'This property has skiing activies!'
-  },
-  {
-    label: 'Castles',
-    icon: GiCastle,
-    description: 'This property is an ancient castle!'
-  },
-  {
-    label: 'Caves',
-    icon: GiCaveEntrance,
-    description: 'This property is in a spooky cave!'
-  },
-  {
-    label: 'Camping',
-    icon: GiForestCamp,
-    description: 'This property offers camping activities!'
-  },
-  {
-    label: 'Arctic',
+    label: "AC",
     icon: BsSnow,
-    description: 'This property is in arctic environment!'
+    description: "This property has AC!",
   },
   {
-    label: 'Desert',
-    icon: GiCactus,
-    description: 'This property is in the desert!'
+    label: "Modern",
+    icon: MdOutlineVilla,
+    description: "This property is Modern!",
   },
   {
-    label: 'Barns',
-    icon: GiBarn,
-    description: 'This property is in a barn!'
+    label: "TV",
+    icon: MdOutlinePersonalVideo,
+    description: "This property has TV!",
   },
   {
-    label: 'Lux',
+    label: "Pools",
+    icon: TbPool,
+    description: "This is property has a beautiful Pool!",
+  },
+  {
+    label: "Meals",
+    icon: GiMeal,
+    description: "This property has dinner and breakfast facilities!",
+  },
+  {
+    label: "WiFi",
+    icon: FaWifi,
+    description: "This property has Wifi!",
+  },
+  {
+    label: "Skiing",
+    icon: FaSkiing,
+    description: "This property has Skiing Activies!",
+  },
+  {
+    label: "Fridge",
+    icon: TbFridge,
+    description: "This property provides Fridges!",
+  },
+  {
+    label: "Jaccuzi",
+    icon: FaHotTub,
+    description: "This property has a Jaccuzi!",
+  },
+  {
+    label: "Gym",
+    icon: FaDumbbell,
+    description: "This property offers Gym Facilities!",
+  },
+  {
+    label: "Spa",
+    icon: TbMassage,
+    description: "This property offers Spa facilities!",
+  },
+  {
+    label: "Parking",
+    icon: FaParking,
+    description: "This property has parking facilities!",
+  },
+  {
+    label: "Oven",
+    icon: MdMicrowave,
+    description: "This property provides an Oven!",
+  },
+  {
+    label: "Lux",
     icon: IoDiamond,
-    description: 'This property is brand new and luxurious!'
-  }
-]
+    description: "This property is Brand New and Luxurious!",
+  },
+];
 
 const Categories = () => {
   const params = useSearchParams();
-  const category = params?.get('category');
+  const category = params?.get("category");
   const pathname = usePathname();
-  const isMainPage = pathname === '/';
+  const isMainPage = pathname === "/";
 
   if (!isMainPage) {
     return null;
@@ -116,13 +134,14 @@ const Categories = () => {
           pt-4
           flex 
           flex-row 
+          text-black
           items-center 
           justify-between
           overflow-x-auto
         "
       >
         {categories.map((item) => (
-          <CategoryBox 
+          <CategoryBox
             key={item.label}
             label={item.label}
             icon={item.icon}
@@ -132,6 +151,6 @@ const Categories = () => {
       </div>
     </Container>
   );
-}
- 
+};
+
 export default Categories;

@@ -6,6 +6,8 @@ html,
 body,
 :root {
   height: 100%;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 77 1 / var(--tw-bg-opacity));
 }
 
 .leaflet-bottom,

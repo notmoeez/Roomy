@@ -23,6 +23,7 @@ export async function POST(
     guestCount,
     location,
     price,
+    keywords,
    } = body;
 
   Object.keys(body).forEach((value: any) => {
@@ -40,6 +41,7 @@ export async function POST(
       roomCount,
       bathroomCount,
       guestCount,
+      keywords,
       locationValue: location.value,
       price: parseInt(price, 10),
       userId: currentUser.id

@@ -61,8 +61,8 @@ export default async function getListings(
     }
 
     if(keywords){
-      query.keywords=keywords;
-    }
+        query.keywords=keywords;
+      }
 
     if (startDate && endDate) {
       query.NOT = {
