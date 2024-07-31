@@ -117,7 +117,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
           </div>
         </div>
         <div className="font-semibold text-lg ml-3">
-          {location?.region}, {location?.label}
+          {location?.region}, {location?.label}, {data.city}
         </div>
         <div className="font-light text-stone-800 ml-3">
           {reservationDate || data.category}
@@ -130,27 +130,22 @@ const ListingCard: React.FC<ListingCardProps> = ({
           <Button
             disabled={disabled}
             small
+            forCard
             label={actionLabel}
             onClick={handleCancel}
           />
         )}
         <ClientOnly>
-          {/* <Button
+          <Button
+            disabled={disabled}
             label="Leave a Review"
+            small
+            forCard
             onClick={(e) => {
               e.stopPropagation();
               openModal();
             }}
-          /> */}
-          <button
-            className="bg-orange-300 rounded-md p-1 m-2"
-            onClick={(e) => {
-              e.stopPropagation();
-              openModal();
-            }}
-          >
-            Leave a Review
-          </button>
+          />
           <ReviewModal isOpen={isModalOpen} onClose={closeModal}>
             <ReviewForm listingId={data.id} onClose={closeModal} />
           </ReviewModal>

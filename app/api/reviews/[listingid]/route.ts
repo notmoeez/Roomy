@@ -28,14 +28,20 @@ export async function POST(
     throw new Error('Missing required fields');
   }
 
-  const review = await prisma.review.create({
-    data: {
-      rating: parseInt(rating, 10),
-      comment,
-      listingId,
-      userId: currentUser.id,
-    },
-  });
+  try {
+    const review = await prisma.review.create({
+      data: {
+        rating: Number(rating),
+        comment: comment,
+        userId: currentUser.id,
+        listingId: listingId,
+      },
+    });
 
-  return NextResponse.json(review);
+    return NextResponse.json(review);
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json({ error: 'Review not created' });
+  }
+
 }

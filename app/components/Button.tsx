@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { IconType } from "react-icons";
 
@@ -8,18 +8,20 @@ interface ButtonProps {
   disabled?: boolean;
   outline?: boolean;
   small?: boolean;
+  forCard?: boolean;
   icon?: IconType;
 }
 
-const Button: React.FC<ButtonProps> = ({ 
-  label, 
-  onClick, 
-  disabled, 
+const Button: React.FC<ButtonProps> = ({
+  label,
+  onClick,
+  disabled,
   outline,
   small,
+  forCard,
   icon: Icon,
 }) => {
-  return ( 
+  return (
     <button
       disabled={disabled}
       onClick={onClick}
@@ -30,14 +32,15 @@ const Button: React.FC<ButtonProps> = ({
         rounded-lg
         hover:opacity-80
         transition
-        w-full
-        ${outline ? 'bg-white' : 'bg-orange-300'}
-        ${outline ? 'border-black' : 'border-orange-300'}
-        ${outline ? 'text-black' : 'text-white'}
-        ${small ? 'text-sm' : 'text-md'}
-        ${small ? 'py-1' : 'py-3'}
-        ${small ? 'font-light' : 'font-semibold'}
-        ${small ? 'border-[1px]' : 'border-2'}
+        ${forCard ? "w-auto" : "w-full"}
+        ${forCard ? "m-2" : "m-0"}
+        ${outline ? "bg-white" : "bg-orange-600"}
+        ${outline ? "border-black" : "border-orange-600"}
+        ${outline ? "text-black" : "text-white"}
+        ${small ? "text-sm" : "text-md"}
+        ${small ? "py-1" : "py-3"}
+        ${small ? "font-light" : "font-semibold"}
+        ${small ? "border-[1px]" : "border-2"}
       `}
     >
       {Icon && (
@@ -52,7 +55,7 @@ const Button: React.FC<ButtonProps> = ({
       )}
       {label}
     </button>
-   );
-}
- 
+  );
+};
+
 export default Button;

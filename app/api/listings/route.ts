@@ -22,6 +22,7 @@ export async function POST(
     bathroomCount,
     guestCount,
     location,
+    city,
     price,
     keywords,
    } = body;
@@ -38,6 +39,7 @@ export async function POST(
       description,
       imageSrc,
       category,
+      city,
       roomCount,
       bathroomCount,
       guestCount,

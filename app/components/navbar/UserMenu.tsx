@@ -76,6 +76,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
           cursor-pointer 
           shadow-md 
           hover:bg-white
+          hover:shadow-lg
           transition
           "
         >
@@ -94,7 +95,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
             w-[40vw]
             md:w-3/4 
             border-white
-            bg-orange-300 
+            bg-orange-600 
             overflow-hidden 
             right-0 
             top-12 
@@ -114,7 +115,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                   onClick={() => router.push("/reservations")}
                 />
                 <MenuItem
-                  label="Rroperties"
+                  label="Properties"
                   onClick={() => router.push("/properties")}
                 />
                 <MenuItem label="Roomy your home" onClick={rentModal.onOpen} />

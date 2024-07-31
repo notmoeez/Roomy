@@ -17,6 +17,7 @@ const Search = () => {
   const startDate = params?.get("startDate");
   const endDate = params?.get("endDate");
   const guestCount = params?.get("guestCount");
+  const city = params?.get("city");
 
   const locationLabel = useMemo(() => {
     if (locationValue) {
@@ -81,7 +82,7 @@ const Search = () => {
             px-6
           "
         >
-          {locationLabel}
+          {locationLabel}, {city}
         </div>
         <div
           className="

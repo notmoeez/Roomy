@@ -30,6 +30,8 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ listingId, onClose }) => {
     setIsLoading(true);
 
     try {
+      // console.log(listingId);
+      console.log(data);
       await axios.post(`/api/reviews/${listingId}`, data);
       toast.success("Review submitted!");
       reset();
